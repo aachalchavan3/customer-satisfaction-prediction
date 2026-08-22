@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CustomerIQ | Satisfaction Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">C</div>
+
+            <div>
+                <h2>CustomerIQ</h2>
+                <span>ML Analytics</span>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a class="nav-item active" href="#">
+                <span>⌂</span>
+                Prediction
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    CUSTOMER SATISFACTION PREDICTION
+                </p>
+
+                <h1>
+                    Customer Satisfaction
+                </h1>
+
+                <p class="header-text">
+                    Enter customer details and experience ratings
+                    to predict satisfaction.
+                </p>
+
+            </div>
+
+            <div class="top-badge">
+                <span class="pulse"></span>
+                Prediction Ready
+            </div>
+
+        </header>
+
+
+        <!-- ================= WORKSPACE ================= -->
+        <section class="workspace">
+
+
+            <!-- ================= PREDICTION FORM ================= -->
+            <div class="form-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <p class="section-label">
+                            CUSTOMER PROFILE
+                        </p>
+
+                        <h2>
+                            Enter Customer Details
+                        </h2>
+
+                    </div>
+
+                    <div class="step">
+                        STEP 01
+                    </div>
+
+                </div>
+
+
+                <form method="POST">
+
+                    <!-- BASIC INFORMATION -->
+                    <div class="form-section">
+
+                        <h3>
+                            Basic Information
+                        </h3>
+
+                        <div class="form-grid">
+
+
+                            <!-- AGE -->
+                            <div class="field">
+
+                                <label>
+                                    Age
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Age"
+                                    min="18"
+                                    max="100"
+                                    placeholder="e.g. 25"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- GENDER -->
+                            <div class="field">
+
+                                <label>
+                                    Gender
+                                </label>
+
+                                <select
+                                    name="Gender"
+                                    required
+                                >
+
+                                    <option value=""
+                                            disabled
+                                            selected>
+                                        Select gender
+                                    </option>
+
+                                    <option value="Male">
+                                        Male
+                                    </option>
+
+                                    <option value="Female">
+                                        Female
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- PURCHASE FREQUENCY -->
+                            <div class="field">
+
+                                <label>
+                                    Purchase Frequency
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Purchase_Frequency"
+                                    min="1"
+                                    max="10"
+                                    placeholder="1 - 10"
+                                    required
+                                >
+
+                                <small>
+                                    How frequently the customer purchases
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EXPERIENCE RATINGS -->
+                    <div class="form-section">
+
+                        <h3>
+                            Experience Ratings
+                        </h3>
+
+                        <p class="hint">
+                            Rate each factor from 1 (low) to 5 (high).
+                        </p>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- SERVICE QUALITY -->
+                            <div class="field">
+
+                                <label>
+                                    Service Quality
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Service_Quality"
+                                    min="1"
+                                    max="5"
+                                    placeholder="1 - 5"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- PRODUCT QUALITY -->
+                            <div class="field">
+
+                                <label>
+                                    Product Quality
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Product_Quality"
+                                    min="1"
+                                    max="5"
+                                    placeholder="1 - 5"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- SUPPORT QUALITY -->
+                            <div class="field">
+
+                                <label>
+                                    Support Quality
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Support_Quality"
+                                    min="1"
+                                    max="5"
+                                    placeholder="1 - 5"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- WAITING TIME -->
+                            <div class="field">
+
+                                <label>
+                                    Waiting Time
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Waiting_Time"
+                                    min="1"
+                                    max="5"
+                                    placeholder="1 - 5"
+                                    required
+                                >
+
+                                <small>
+                                    1 = very short, 5 = very long
+                                </small>
+
+                            </div>
+
+
+                            <!-- VALUE FOR MONEY -->
+                            <div class="field">
+
+                                <label>
+                                    Value for Money
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Value_for_Money"
+                                    min="1"
+                                    max="5"
+                                    placeholder="1 - 5"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- EASE OF USE -->
+                            <div class="field">
+
+                                <label>
+                                    Ease of Use
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Ease_of_Use"
+                                    min="1"
+                                    max="5"
+                                    placeholder="1 - 5"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- RECOMMENDATION -->
+                            <div class="field">
+
+                                <label>
+                                    Recommendation
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Recommendation"
+                                    min="1"
+                                    max="5"
+                                    placeholder="1 - 5"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- COMPLAINT RESOLUTION -->
+                            <div class="field">
+
+                                <label>
+                                    Complaint Resolution
+                                </label>
+
+                                <input
+                                    type="number"
+                                    name="Complaint_Resolution"
+                                    min="1"
+                                    max="5"
+                                    placeholder="1 - 5"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUTTONS -->
+                    <div class="form-actions">
+
+                        <button
+                            type="reset"
+                            class="secondary-btn">
+                            Clear
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn">
+
+                            <span>
+                                Run Prediction
+                            </span>
+
+                            <span class="arrow">
+                                →
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- ================= PREDICTION RESULT ================= -->
+            <aside class="result-card">
+
+                <div class="result-top">
+
+                    <p class="section-label">
+                        PREDICTION RESULT
+                    </p>
+
+                    <div class="result-status">
+                        LIVE
+                    </div>
+
+                </div>
+
+
+                <!-- RESULT AFTER PREDICTION -->
+                {% if prediction %}
+
+                    <div class="result-display
+                        {% if prediction == 'Satisfied' %}
+                            positive
+                        {% else %}
+                            negative
+                        {% endif %}
+                    ">
+
+
+                        <!-- RESULT ICON -->
+                        <div class="result-circle">
+
+                            {% if prediction == 'Satisfied' %}
+
+                                ✓
+
+                            {% else %}
+
+                                !
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <p class="result-caption">
+                            Predicted Status
+                        </p>
+
+
+                        <h2>
+                            {{ prediction }}
+                        </h2>
+
+
+                        <!-- CONFIDENCE -->
+                        {% if probability %}
+
+                            <div class="confidence">
+
+                                <div class="confidence-head">
+
+                                    <span>
+                                        Model confidence
+                                    </span>
+
+                                    <strong>
+                                        {{ probability }}%
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="progress">
+
+                                    <div
+                                        class="progress-fill"
+                                        style="width: {{ probability }}%">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- INTERPRETATION -->
+                    <div class="interpretation">
+
+                        <span class="info-icon">
+                            i
+                        </span>
+
+                        <p>
+
+                            {% if prediction == 'Satisfied' %}
+
+                                The customer profile indicates a positive
+                                satisfaction pattern based on the entered
+                                experience ratings.
+
+                            {% else %}
+
+                                The customer profile indicates a lower
+                                satisfaction pattern. Service and experience
+                                factors may need attention.
+
+                            {% endif %}
+
+                        </p>
+
+                    </div>
+
+
+                <!-- BEFORE PREDICTION -->
+                {% else %}
+
+                    <div class="empty-result">
+
+                        <div class="empty-icon">
+                            ◎
+                        </div>
+
+                        <h3>
+                            Awaiting Prediction
+                        </h3>
+
+                        <p>
+                            Enter the customer details on the left and click
+                            <strong>Run Prediction</strong>
+                            to view the result.
+                        </p>
+
+                    </div>
+
+                {% endif %}
+
+            </aside>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
